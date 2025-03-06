@@ -1,0 +1,204 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4; /* Light background by default */
+  color: #333; /* Dark text by default */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: #1a1a1a; /* Dark background for the whole page */
+  color: #fff; /* Light text for the whole page */
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Current Date and Time */
+.current-date-time {
+  font-size: 0.8rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+body.dark-mode .current-date-time {
+  color: #bdc3c7; /* Light gray for dark mode */
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #a1a6a2; /* Bright blue */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.dark-mode-toggle:hover {
+  background: #357abd; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Category Navigation Bar */
+.category-nav {
+  margin-bottom: 20px;
+}
+
+.category-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.category-item {
+  padding: 10px 20px;
+  background: #f0f0f0; /* Light gray */
+  color: #333; /* Dark text */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.category-item:hover {
+  background: #e0e0e0; /* Slightly darker gray on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.category-item.active {
+  background: #4a90e2; /* Bright blue for active tab */
+  color: #fff; /* White text for active tab */
+}
+
+body.dark-mode .category-item {
+  background: #444; /* Dark gray in dark mode */
+  color: #fff; /* Light text in dark mode */
+}
+
+body.dark-mode .category-item:hover {
+  background: #555; /* Slightly lighter gray on hover in dark mode */
+}
+
+body.dark-mode .category-item.active {
+  background: #357abd; /* Darker blue for active tab in dark mode */
+}
+
+/* News Container */
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative; /* For dark mode button positioning */
+}
+
+/* Grid Layout */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 20px; /* Space between cards */
+}
+
+/* News Card */
+.news-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff; /* Light card background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  text-align: left; /* Left-align all text */
+}
+
+body.dark-mode .news-card {
+  background: #2c3e50; /* Dark card background */
+  border-color: #444;
+  color: #fff;
+}
+
+.news-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.news-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.news-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+body.dark-mode .news-card p {
+  color: #bdc3c7; /* Light gray for descriptions in dark mode */
+}
+
+.published-date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+body.dark-mode .published-date {
+  color: #95a5a6; /* Gray for date in dark mode */
+}
+
+.news-card a {
+  color: #4a90e2; /* Bright blue for links */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.news-card a:hover {
+  text-decoration: underline;
+}
+
+.news-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr; /* One column on smaller screens */
+  }
+
+  h1 {
+    font-size: 2rem; /* Smaller heading on mobile */
+  }
+
+  .category-list {
+    gap: 5px; /* Reduce gap on smaller screens */
+  }
+
+  .category-item {
+    padding: 8px 16px; /* Smaller padding on smaller screens */
+  }
+
+  .dark-mode-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px; /* Smaller button on smaller screens */
+  }
+}
