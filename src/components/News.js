@@ -100,6 +100,11 @@ const News = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  // Separate news articles into different categories
+  const mostImportantNews = news.slice(0, 3); // First 3 articles are most important
+  const latestNews = news.slice(3, 7); // Next 4 articles are latest news
+  const popularNews = news.slice(7); // Remaining articles are popular news
+
   return (
     <div className="news-container">
       {/* Dark Mode Toggle */}
@@ -128,25 +133,79 @@ const News = () => {
 
       {/* News Grid */}
       <div className="news-grid">
-        {news.map((article, index) => (
-          <div key={index} className="news-card">
-            <h2>{article.title}</h2>
-            <p>{article.description}</p>
-            <p className="published-date">
-              Published: {formatDate(article.publishedAt)}
-            </p>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              Read more
-            </a>
-            {article.image && (
-              <img
-                src={article.image}
-                alt={article.title}
-                className="news-image"
-              />
-            )}
-          </div>
-        ))}
+        {/* Left Column - Most Important News */}
+        <div className="left-column">
+        <br />
+          <h2>Most Important</h2>
+          {mostImportantNews.map((article, index) => (
+            <div key={index} className="news-card">
+              <h2>{article.title}</h2>
+              <p>{article.description}</p>
+              <p className="published-date">
+                Published: {formatDate(article.publishedAt)}
+              </p>
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
+                Read more
+              </a>
+              {article.image && (
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="news-image"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Middle Column - Latest News */}
+        <div className="middle-column">
+        <h2>BREAKINGS</h2>  
+          {latestNews.map((article, index) => (
+            <div key={index} className="news-card">
+              <h2>{article.title}</h2>
+              <p>{article.description}</p>
+              <p className="published-date">
+                Published: {formatDate(article.publishedAt)}
+              </p>
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
+                Read more
+              </a>
+              {article.image && (
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="news-image"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Right Column - Popular News */}
+        <div className="right-column">
+        <br />
+          <h2>Most Popular</h2>
+          {popularNews.map((article, index) => (
+            <div key={index} className="news-card">
+              <h2>{article.title}</h2>
+              <p>{article.description}</p>
+              <p className="published-date">
+                Published: {formatDate(article.publishedAt)}
+              </p>
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
+                Read more
+              </a>
+              {article.image && (
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="news-image"
+                />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
