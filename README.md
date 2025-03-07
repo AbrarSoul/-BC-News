@@ -1,4 +1,4 @@
-# News App
+# @BC News App
 
 ## Description
 This is a React-based news application that fetches and displays top headlines from the GNews API. Users can browse news articles by category, toggle between light and dark modes, and see the current date and time.
